@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Player WhatsApp Style</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js"></script>
+</head>
+<body>
+  <div class="player-container">
+    <img src="avatar.png" alt="Avatar" class="avatar" />
+    <div class="waveform" id="waveform"></div>
+    <button id="playBtn">▶️</button>
+  </div>
+  <script>
+    const wavesurfer = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: '#ccc',
+      progressColor: '#25D366',
+      barWidth: 3,
+      height: 40
+    });
+
+    wavesurfer.load('audio.mp3');
+
+    const playBtn = document.getElementById('playBtn');
+    playBtn.addEventListener('click', () => {
+      wavesurfer.playPause();
+      playBtn.textContent = wavesurfer.isPlaying() ? '⏸️' : '▶️';
+    });
+  </script>
+</body>
+</html>
