@@ -13,21 +13,22 @@
     <button id="playBtn">▶️</button>
   </div>
   <script>
-    const wavesurfer = WaveSurfer.create({
-      container: '#waveform',
-      waveColor: '#ccc',
-      progressColor: '#25D366',
-      barWidth: 3,
-      height: 40
-    });
+  const wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#ccc',
+    progressColor: '#25D366',
+    barWidth: 3,
+    height: 40
+  });
 
-    wavesurfer.load('audio.mp3');
+  // Carrega o áudio hospedado no link externo
+  wavesurfer.load('https://audio-2izjgs6v4-godoys2s-projects.vercel.app/voxtype.mp3');
 
-    const playBtn = document.getElementById('playBtn');
-    playBtn.addEventListener('click', () => {
-      wavesurfer.playPause();
-      playBtn.textContent = wavesurfer.isPlaying() ? '⏸️' : '▶️';
-    });
-  </script>
+  const playBtn = document.getElementById('playBtn');
+  playBtn.addEventListener('click', () => {
+    wavesurfer.playPause();
+    playBtn.textContent = wavesurfer.isPlaying() ? '⏸️' : '▶️';
+  });
+</script>
 </body>
 </html>
